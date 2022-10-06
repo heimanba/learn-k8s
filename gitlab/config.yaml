@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gitlab-secret
+  namespace: devops
+type: Opaque
+data:
+  gitlab_root_username: c2VydmVybGVzLWNkQDE2My5jb20=
+  gitlab_root_password: MWYyZDFlMmU2N2Rm
+  gitlab_host: Y29kZS5jYjZkNDUwNmRhNTkxNGY5ZThkNWQ3ZjMwMDUwZWM1NTUuY24tc2hhbmdoYWkuYWxpY29udGFpbmVyLmNvbQ==
+
+---
+# ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/service-weight: ''
+  name: gitlab
+  namespace: devops
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: code.cb6d4506da5914f9e8d5d7f30050ec555.cn-shanghai.alicontainer.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: gitlab
+                port:
+                  number: 80
+            path: /
+            pathType: ImplementationSpecific
