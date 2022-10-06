@@ -89,8 +89,8 @@ spec:
               key: gitlab_root_password
         - name: GITLAB_HOST           
           valueFrom:
-            secretKeyRef:
-              name: gitlab-secret
+            configMapKeyRef:
+              name: gitlab-config
               key: gitlab_host
         - name: GITLAB_PORT        
           value: '80'                   

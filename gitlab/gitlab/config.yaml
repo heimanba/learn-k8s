@@ -7,7 +7,17 @@ type: Opaque
 data:
   gitlab_root_username: c2VydmVybGVzLWNkQDE2My5jb20=
   gitlab_root_password: MWYyZDFlMmU2N2Rm
-  gitlab_host: Y29kZS5jYjZkNDUwNmRhNTkxNGY5ZThkNWQ3ZjMwMDUwZWM1NTUuY24tc2hhbmdoYWkuYWxpY29udGFpbmVyLmNvbQ==
+  gitlab_host: Z2l0bGFiLmMxNjE5NDY2MGYxNDU0ODk4YTA4MTA0MDgxNzEzMDJhYy5jbi1zaGFuZ2hhaS5hbGljb250YWluZXIuY29t
+
+---
+# ConfigMap
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gitlab-config
+data:
+  gitlab_host: gitlab.c16194660f1454898a0810408171302ac.cn-shanghai.alicontainer.com
 
 ---
 # ingress
@@ -21,7 +31,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: code.cb6d4506da5914f9e8d5d7f30050ec555.cn-shanghai.alicontainer.com
+    - host: gitlab.c16194660f1454898a0810408171302ac.cn-shanghai.alicontainer.com
       http:
         paths:
           - backend:
