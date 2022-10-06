@@ -4,4 +4,4 @@
 - 需要修改`config.yaml`中的`gitlab_root_username`和`gitlab_root_password`配置
 
 ## 参考
-https://blog.z0ukun.com/?p=3607
+https://blog.z0ukun.com/?p=3601#1GitLab
